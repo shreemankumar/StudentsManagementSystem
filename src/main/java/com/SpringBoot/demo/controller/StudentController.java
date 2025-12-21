@@ -1,6 +1,7 @@
 package com.SpringBoot.demo.controller;
 
 
+import com.SpringBoot.demo.entity.Student;
 import com.SpringBoot.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,5 +21,12 @@ public class StudentController {
     public String getAllStudents(Model model){
         model.addAttribute("students",service.getAllStudent());
         return "students";
+    }
+
+    @GetMapping("students/new")
+    public String createStudentFrom(Model model){
+        Student student = new Student();
+        model.addAttribute("students",student);
+        return "create-student";
     }
 }
