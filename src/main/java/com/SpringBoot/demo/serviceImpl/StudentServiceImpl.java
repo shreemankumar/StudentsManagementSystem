@@ -18,4 +18,19 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> getAllStudent() {
         return studentRepository.findAll();
     }
+
+    @Override
+    public Student saveStudent(Student student) {
+        return studentRepository.save(student);
+    }
+
+    @Override
+    public Student getById(int id) {
+        return studentRepository.findById(id).get();
+    }
+
+    @Override
+    public void deleteById(int id) {
+        studentRepository.deleteById(id);
+    }
 }
